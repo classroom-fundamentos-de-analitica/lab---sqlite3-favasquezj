@@ -28,16 +28,17 @@
 --    c24 FLOAT,
 --    c25 CHAR(5)
 --
---  Escriba una consulta que retorne los campos K0 y c16
---  para los registros de la tabla tbl1 para los que la 
---  columna c16 empieza por la misma letra de la columna K0.
+--  Escriba una consulta que compute el promedio
+--  de la columna c21 de la tabla tbl2 por ano 
+--  (columna c23).
 --
 --  Rta/
---    K0   c16
---  0  E  EGFD
---  1  B  BDEE
---  2  C  CCCE
+--     YEAR    avg(c21)
+--  0  2016  564.476429
+--  1  2017  515.156364
+--  2  2018  557.559375
+--  3  2019  550.998571
 --
 --  >>> Escriba su codigo a partir de este punto <<<
--- 
-SELECT K0,c16 FROM tbl1 WHERE K0 = SUBSTRING(c16,1,1)
+--
+SELECT strftime('%Y', c23), avg(c21) FROM tbl2 GROUP BY strftime('%Y', c23)

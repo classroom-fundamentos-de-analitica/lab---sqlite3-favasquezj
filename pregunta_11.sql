@@ -28,16 +28,14 @@
 --    c24 FLOAT,
 --    c25 CHAR(5)
 --
---  Escriba una consulta que retorne los campos K0 y c16
---  para los registros de la tabla tbl1 para los que la 
---  columna c16 empieza por la misma letra de la columna K0.
+--  Escriba una consulta que retorne el total 
+--  de registros de la tabla tbl1 para el ano
+--  2018
 --
 --  Rta/
---    K0   c16
---  0  E  EGFD
---  1  B  BDEE
---  2  C  CCCE
+--     YEAR  CANT
+--  0  2018     6
 --
 --  >>> Escriba su codigo a partir de este punto <<<
 -- 
-SELECT K0,c16 FROM tbl1 WHERE K0 = SUBSTRING(c16,1,1)
+SELECT COUNT(*) FROM tbl1 WHERE strftime('%Y',c14) = '2018'
